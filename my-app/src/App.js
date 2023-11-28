@@ -1,17 +1,7 @@
-
+import { jsx as _jsx } from "react/jsx-runtime";
 import './App.css';
-
+import CurrPage from './components/currPage';
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        
-        
-        
-          
-      </header>
-    </div>
-  );
+    return (_jsx("div", { children: _jsx(CurrPage, {}) }));
 }
-
-export default App; 
+export default App;

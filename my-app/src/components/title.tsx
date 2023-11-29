@@ -1,7 +1,7 @@
 function Title() {
     return(
      <div>
-       <h1 className = "title">Computer Science Department DataBase</h1>
+       <h1 className = "title">Computer Science Department Database</h1>
        
      </div>
       

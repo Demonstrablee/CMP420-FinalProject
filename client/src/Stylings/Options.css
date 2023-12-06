@@ -1,0 +1,45 @@
+
+p{
+    color: white;
+    font-weight: bold;
+    text-align: center;
+}
+#warning{
+    background-color: blueviolet;
+    width : 50%;
+    position: absolute;
+    left: 25% ;
+    bottom: 80%;
+}
+
+.title{
+    margin-bottom: 100px;
+}
+.dept{
+    position: absolute;
+    top: 20%;
+    left: 28%
+}
+.instructor{
+    position: absolute;
+    top : 20%;
+    left: 22%
+    
+}
+.student{
+    position:absolute;
+    top : 20%;
+    right : 22%;
+}
+.incident{
+    position: absolute;
+    top: 40%;
+    left: 45%;
+ 
+}
+.return{
+    position: absolute;
+    top: 47%;
+    left: 46.4%;
+}
+

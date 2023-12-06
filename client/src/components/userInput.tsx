@@ -1,3 +1,4 @@
+import "../Stylings/UserInput.css"
 function UserInput(props:any){
     // take input from the user
     
@@ -7,20 +8,29 @@ function UserInput(props:any){
   
 
             <form id = "form1">
-                <label> Enter a Staffs First and Last Name</label> <br/>
+                <label className= "label"> Enter a Students First Name, Middle Intial and Last Name</label> <br/>
                 
-                <input id = "sf_name" type = "text"></input>
-                <input id = "sl_name" type = "text"></input>
+                <input id = "sf_name" type = "text" placeholder="firstName"></input>
+                <input id = "sl_name" type = "text" placeholder="middleInit"></input>
+                <input id = "sl_name" type = "text" placeholder="lastName"></input>
+                <input id = "sl_name" type = "text" placeholder = "DOB"></input>
 
             </form>
 
             <form id = "form2"><br/>
-                <label> Enter a Students First and Last Name</label> <br/>
+                <label className="label"> Empilid</label> 
+                <label className="label"> phone number</label>
+                <label className="label"> email </label>
+                <br/>
                 
-                <input id = "sf_name" type = "text"></input>
-                <input id = "sl_name" type = "text"></input>
-
+                <input id = "sf_name" type = "text" placeholder="empilid"></input>
+                <input id = "sl_name" type = "text" placeholder = "phone"></input>
+                <input id = "sl_name" type = "text" placeholder = "email"></input>
+                <input id = "sl_name" type = "text" placeholder = "address"></input>
             </form>
+            
+            
+            <button>Submit</button>
             
         </div>
         

@@ -1,0 +1,38 @@
+.homepage{
+    background-color: rgb(239,204,06);
+    border-radius: 50px;
+    border : none;
+    padding: 20px 10px;
+    font-weight: bold;
+    font-size: x-large;
+    position: relative;
+    
+
+    
+}
+.title{
+  text-align: center;
+  color: white;
+  text-shadow: 1px 1px black;
+}
+.dept{
+    font-size: larger;
+    margin-left: 20%;
+    margin-top: 10px;
+}
+.student{
+    position: absolute;
+   margin-top: 10px;
+   margin-left: 40%;
+}
+
+body{
+    background-image: url("../images/lehman_college_campus.jpeg") ;
+    background-position: center;
+    background-repeat: no-repeat;
+ 
+    background-color: aquamarine;
+
+}
+
+

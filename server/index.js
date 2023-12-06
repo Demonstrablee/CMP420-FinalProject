@@ -49,6 +49,15 @@ function getStudents(request, response) {
         return response.json(data);
     });
 }
+function getStudentWithID(request, response) {
+    const q = 'SELECT * FROM student WHERE empilid = ?';
+    const empilID = request.params.empilid;
+    db.query(q, [empilID], (err, data) => {
+        if (err)
+            return response.json(err);
+        return response.json(data);
+    });
+}
 function getInstructors(request, response) {
     const q = 'SELECT * FROM instructor';
     db.query(q, (err, data) => {
@@ -260,7 +269,34 @@ function postCheatingIncident(request, response) {
 }
 ;
 // DELETE
+function deleteStudent(request, response) {
+    const empilID = request.params.empilid;
+    const q = "DELETE FROM student WHERE empilid = ?";
+    db.query(q, [empilID], (err, data) => {
+        if (err)
+            return response.json(err);
+        return response.json('Student was deleted');
+    });
+}
 //UPDATE
+function updateStudent(request, response) {
+    const empilID = request.params.empilid;
+    const q = "UPDATE student SET `f_name` = ?, `m_name` = ?, `l_name` = ?, `dob`= ?, `email`= ?, `phone`= ?, `address` = ? WHERE empilid = ?";
+    const values = [
+        request.body.f_name,
+        request.body.m_name,
+        request.body.l_name,
+        request.body.dob,
+        request.body.email,
+        request.body.phone,
+        request.body.address
+    ];
+    db.query(q, [...values, empilID], (err, data) => {
+        if (err)
+            return response.json(err);
+        return response.json('Student was Updated');
+    });
+}
 // ROUTES
 //(CREATE)POST
 app.post('/students', postStudents); // add link to data base (WORKING)
@@ -270,8 +306,9 @@ app.get('/backend', (request, response) => {
 });
 //(READ)GET 
 app.get('/students', getStudents); // list all the links in the database (WORKING)
+app.get('/students/:empilid', getStudentWithID); // get one specific student (WORKING)
 app.get('/instructors', getInstructors);
 //UPDATE
-// app.put('/links/:id', db.updateLink) // update an existing link in the database (WORKING)
+app.put('/students/:empilid', updateStudent); // update an existing link in the database (WORKING)
 //DELETE
-// app.delete('/links/:id', db.deleteLink) // delete a link in the data base (WORKING)
+app.delete('/students/:empilid', deleteStudent); // delete a link in the data base (WORKING)

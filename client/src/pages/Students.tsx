@@ -35,19 +35,20 @@ const Students = () => {
       <div className='stu-table' key = {students.empilid}>
          <h1>{students.map((student:any)=>(
           <h5 id = "table-data">{student.empilid} {student.f_name}{student.m_name}{student.l_name}{student.dob}{student.email}{student.phone}{student.address}</h5>
-          // <h1>{student.f_name}</h1>
+        
          ))}</h1>
 
 
       </div>
     </div>
-    <div id = "div2">
-      <button className = "homepage dept"><Link to = "/Add">Add a Student Record</Link></button>
-      <button className = "homepage dept"><Link to = "/Add">Delete Student Records</Link></button>
-      <button className = "homepage dept"><Link to = "/Add">Update Student Records</Link></button>
-
+    <div className = "div2">
+      <button className = "homepage-button "><Link to = "/Add">Add a Student Record</Link></button>
+      <button className = "homepage-button "><Link to = "/update/">Update Student Records</Link></button>
+      <button className = "homepage-button "><Link to = "/delete">Delete Student Records</Link></button>
+      <button className = "homepage-button "><Link to = "/search">Search Student Records</Link></button>
+      <button className='homepage-button'><Link to = "/options"> Back to Options</Link></button>
     </div>
-    <button><Link to = "/options"> Back to Options</Link></button>
+    
   </div>
 )
   

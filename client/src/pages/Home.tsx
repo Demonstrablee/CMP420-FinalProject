@@ -10,8 +10,8 @@ const Home = () => {
         <h1 className = "title">COMPUTER SCIENCE DEPARTMENT</h1>
       </div>
       <div id = "div2">
-        <button className = "homepage dept"><Link to = "/options">Departmental Affairs</Link></button>
-        <button className = "homepage student">Student Life</button>
+        <button className = "homepage-button"><Link to = "/options">Departmental Affairs</Link></button>
+        <button className = "homepage-button ">Student Life</button>
       </div>
     </div>
   )

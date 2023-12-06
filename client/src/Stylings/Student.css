@@ -1,4 +1,15 @@
 #table-data{
     color: white;
+
+}
+
+.div2{
+    display: flex;
+    align-items: center;
+}
+.label{
+    font-weight: bold;
+    text-shadow: 60px,7px black;
+    color:yellow
     
 }

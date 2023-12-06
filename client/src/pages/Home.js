@@ -1,7 +1,15 @@
-import { jsx as _jsx, jsxs as _jsxs } from "react/jsx-runtime";
 import '../Stylings/Home.css';
+import React from 'react';
 import { Link } from 'react-router-dom';
 const Home = () => {
-    return (_jsxs("div", { children: [_jsx("div", { id: "div1", children: _jsx("h1", { className: "title", children: "COMPUTER SCIENCE DEPARTMENT" }) }), _jsxs("div", { id: "div2", children: [_jsx("button", { className: "homepage dept", children: _jsx(Link, { to: "/options", children: "Departmental Affairs" }) }), _jsx("button", { className: "homepage student", children: "Student Life" })] })] }));
+    return (<div>
+      <div id="div1">    
+        <h1 className="title">COMPUTER SCIENCE DEPARTMENT</h1>
+      </div>
+      <div id="div2">
+        <button className="homepage-button"><Link to="/options">Departmental Affairs</Link></button>
+        <button className="homepage-button ">Student Life</button>
+      </div>
+    </div>);
 };
 export default Home;

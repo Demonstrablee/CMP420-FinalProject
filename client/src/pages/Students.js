@@ -1,6 +1,5 @@
-import { jsx as _jsx, jsxs as _jsxs } from "react/jsx-runtime";
 import axios from 'axios';
-import { useEffect, useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import "../Stylings/Student.css";
 const Students = () => {
@@ -19,8 +18,24 @@ const Students = () => {
         };
         fetchAllStudents();
     }, []);
-    return (_jsxs("div", { children: [_jsxs("div", { id: "div1", children: [_jsx("h1", { className: "title", children: "COMPUTER SCIENCE DEPARTMENT" }), _jsx("h2", { className: 'title', children: "Student Records Portal" }), _jsx("div", { className: 'stu-table', children: _jsx("h1", { children: students.map((student) => (_jsxs("h5", { id: "table-data", children: [student.empilid, " ", student.f_name, student.m_name, student.l_name, student.dob, student.email, student.phone, student.address] })
-                            // <h1>{student.f_name}</h1>
-                            )) }) }, students.empilid)] }), _jsxs("div", { id: "div2", children: [_jsx("button", { className: "homepage dept", children: _jsx(Link, { to: "/Add", children: "Add a Student Record" }) }), _jsx("button", { className: "homepage dept", children: _jsx(Link, { to: "/Add", children: "Delete Student Records" }) }), _jsx("button", { className: "homepage dept", children: _jsx(Link, { to: "/Add", children: "Update Student Records" }) })] }), _jsx("button", { children: _jsx(Link, { to: "/options", children: " Back to Options" }) })] }));
+    return (<div>
+    <div id="div1">    
+      <h1 className="title">COMPUTER SCIENCE DEPARTMENT</h1>
+      <h2 className='title'>Student Records Portal</h2>
+      <div className='stu-table' key={students.empilid}>
+         <h1>{students.map((student) => (<h5 id="table-data">{student.empilid} {student.f_name}{student.m_name}{student.l_name}{student.dob}{student.email}{student.phone}{student.address}</h5>))}</h1>
+
+
+      </div>
+    </div>
+    <div className="div2">
+      <button className="homepage-button "><Link to="/Add">Add a Student Record</Link></button>
+      <button className="homepage-button "><Link to="/update/">Update Student Records</Link></button>
+      <button className="homepage-button "><Link to="/delete">Delete Student Records</Link></button>
+      <button className="homepage-button "><Link to="/search">Search Student Records</Link></button>
+      <button className='homepage-button'><Link to="/options"> Back to Options</Link></button>
+    </div>
+    
+  </div>);
 };
 export default Students;

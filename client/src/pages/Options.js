@@ -1,7 +1,26 @@
-import { jsx as _jsx, jsxs as _jsxs } from "react/jsx-runtime";
+import React from 'react';
 import { Link } from 'react-router-dom';
 import '../Stylings/Options.css';
 const Options = () => {
-    return (_jsxs("div", { children: [_jsx("div", { id: "div1", children: _jsx("h1", { className: "title", children: "COMPUTER SCIENCE DEPARTMENT" }) }), _jsx("div", { id: 'warning', children: _jsxs("p", { children: ["The Website is currently under maintenance. The systems for Departments, Instructors and ", _jsx("br", {}), "Cheating Incidents are down at the moment we apologize for the temporary inconvience "] }) }), _jsxs("div", { children: [_jsx("button", { className: "homepage dept", children: "Departments" }), _jsx("button", { className: "homepage instructor", children: "Instructors" }), _jsx("button", { className: "homepage student", children: _jsx(Link, { to: "/students", children: "Students" }) })] }), _jsx("div", { children: _jsx("button", { className: "homepage incident", children: "Cheating Incidents" }) }), _jsx("button", { className: ' homepage return', children: _jsx(Link, { to: "/", children: " Back to Home" }) })] }));
+    return (<div>
+        <div id="div1">    
+        <h1 className="title">COMPUTER SCIENCE DEPARTMENT</h1>
+      </div>
+        <div id='warning'>
+        <p>The website is currently under maintenance. The systems for Departments, 
+          Instructors and Cheating Incidents are down at the moment we apologize for the 
+          temporary inconvience. </p>
+        </div>
+        <div>
+        <button className="homepage-button">Departments</button>
+        <button className="homepage-button">Instructors</button>
+        <button className="homepage-button"><Link to="/students">Students</Link></button>
+        </div>
+
+        <div>
+            <button className="homepage-button">Cheating Incidents</button>
+        </div>
+        <button className=' homepage-button'><Link to="/"> Back to Home</Link></button>
+    </div>);
 };
 export default Options;

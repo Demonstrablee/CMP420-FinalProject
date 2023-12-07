@@ -1,6 +1,6 @@
 Welcome to the Computer Science Departments Database
 
-
+![Screen Shot 2023-12-05 at 9 20 21 PM](https://github.com/Demonstrablee/CMP420-FinalProject/assets/78444693/52acc002-5c42-4861-9808-f8ab04f3988c)
 ## Instructions
 To run the app from your own computer, within the terminal:
  

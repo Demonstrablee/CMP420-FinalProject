@@ -10,6 +10,6 @@ To run the app from your own computer, within the terminal:
 4. 	Voila! Welcome to the Computer Science Departments Database click Department Affairs and explore from there
 
 Created with the Collaborative Effort of:
-Ljupcho Atanasov
-Aliyah Daisie
-Salif Tankoano
+- Ljupcho Atanasov 
+- Aliyah Daisie
+- Salif Tankoano

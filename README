@@ -1,0 +1,14 @@
+Welcome to the Computer Science Departments Database
+
+## Instructions
+To run the app from your own computer, within the terminal:
+ 
+1. 	Change directory into the server folder with “cd server”
+2. 	Type “npm start” and the express server should start up
+3. 	Within your browser (we used opera) either enter http://localhost:8000 , or click the link that appears in the terminal to the same site.
+4. 	Voila! Welcome to the Computer Science Departments Database click Department Affairs and explore from there
+
+Created with the Collaborative Effort of:
+Ljupcho Atanasov
+Aliyah Daisie
+Salif Tankoano

@@ -5,16 +5,20 @@ import { Link, useLocation, useNavigate } from 'react-router-dom';
 const Update = () => {
     const [currStudent, setCurrStudent] = useState([]);
     const [student, setStudent]:[any,any] = useState({
-      f_name: "",
-      m_name:"" ,
-      l_name: "",
-      dob: null,
-      email: "",
-      phone:"",
-      address: "",
+        firstName: "",
+        mi:"" ,
+        lastName: "",
+        dob: "",
+        email:"",
+        phone: "",
+        house_number: "",
+        city:"",
+        zipCode:"",
+        state:""
   }
   );
-  const[empilid, setEmpilid]: [any,any] = useState("")
+  const[emplid, setEmplid]: [any,any] = useState("");
+  const[serverResponse, setServerResponse] = useState("");
 
   const navigate = useNavigate() // move to another page 
   const location = useLocation(); // get the current page you are on
@@ -38,20 +42,22 @@ const Update = () => {
   function handelChange(event:any){
       // get whatever was the last version of the array for the state, if event.target.name has the same name as the feild update that feilds value
       setStudent((previous:any)=> ({...previous, [event.target.name]: event.target.value}))
-      setEmpilid((event.target.name =='empilid') ? event.target.value : empilid)
+      setEmplid((event.target.name =='emplid') ? event.target.value : emplid)
       console.log(student);
-      console.log(empilid);
+      console.log(emplid);
   }
 
 
   const handelSubmit = async (event:any) => {
           try{
                   event.preventDefault(); // stop page from reloading
-                  await axios.put("http://localhost:8000/students/"+ empilid, student);
-                  const response = await axios.get("http://localhost:8000/students/"+ empilid); // get the sudents data
-                  console.log("http://localhost:8000/students/"+ empilid);
-                  console.log(student)
-                  navigate("/students") // go back to the students portal page
+                  const response = await axios.put("http://localhost:8000/students/"+ emplid, student);
+                  const response2 = await axios.get("http://localhost:8000/students/"+ emplid); // get the sudents data
+                  console.log("http://localhost:8000/students/"+ emplid);
+                 console.log(response2.data[0])
+
+                 setServerResponse(response.data)
+                 //navigate("/students") // go back to the students portal page
           }catch(error){
               console.log(error);
               }
@@ -63,33 +69,48 @@ const Update = () => {
       <div>
         <h1 className = "title">COMPUTER SCIENCE DEPARTMENT</h1>
         <h2 className = 'title'>Update a Students Records</h2>
-        <h2 id = "table-data">{student.empilid}{student.f_name}{student.m_name}{student.l_name}{student.dob}{student.email}{student.phone}{student.address}</h2>
-
+        <div className = 'warning'>
+        <p>The website is currently under maintenance. Ensure to fill all the inputs specialy the DOB, unique email, and empilid or you submission may not be recived  <br/> 
+            able to submit again. We apologize for the inconvience.</p>
+        </div>
+        <h5 className = "table-data">{student.emplid} {student.firstName} {student.mi} {student.lastName} {(student.dob).substring(0,10)} {student.email} {student.phone}</h5>
+        
         <form>
             <label className="label"> Empilid</label> <br/>
-            <input id = "sf_name" type = "text" placeholder="empilid" onChange={handelChange} name="empilid"></input>
+            <input id = "sf_name" type = "text" placeholder="emplid" onChange={handelChange} name="emplid"></input>
         </form>
           <form id = "form1">
               <label className= "label"> Enter a Students First Name, Middle Intial and Last Name</label> <br/>
               
-              <input id = "sf_name" type = "text" placeholder="firstName" onChange={handelChange} name="f_name"></input>
-              <input id = "sl_name" type = "text" placeholder="middleInit" onChange={handelChange} name="m_name"></input>
-              <input id = "sl_name" type = "text" placeholder="lastName" onChange={handelChange} name = "l_name"></input>
-              <input id = "sl_name" type = "text" placeholder = "DOB" onChange={handelChange} name = "dob"></input>
-  
+              <input id = "sf_name" type = "text" placeholder="firstName" onChange={handelChange} name="firstName"></input>
+              <input id = "sl_name" type = "text" placeholder="middleInit" onChange={handelChange} name="mi"></input>
+              <input id = "sl_name" type = "text" placeholder="lastName" onChange={handelChange} name = "lastName"></input>
+              
           </form>
   
           <form id = "form2"><br/>
         
               <label className="label"> phone number</label>
               <label className="label"> email </label>
-              <label className="label"> address</label>
+
               <br/>
-              <input id = "sl_name" type = "text" placeholder = "phone" onChange={handelChange} name="phone"></input>
+              <input id = "sl_name" type = "text" placeholder = "YYYY-DD-MM" onChange={handelChange} name = "dob"></input>
               <input id = "sl_name" type = "text" placeholder = "email" onChange={handelChange} name ="email"></input>
-              <input id = "sl_name" type = "text" placeholder = "address" onChange={handelChange} name= "address"></input>
+              <input id = "sl_name" type = "text" placeholder = "phone" onChange={handelChange} name="phone"></input>
+              
           </form>
-          
+          <form id = "form3"><br/>
+            <label className="label"> House Number</label> 
+            <label className="label"> Zipcode</label>
+            <label className="label"> City </label>
+            <label className="label"> State </label>
+            <br/>
+            
+            <input className = "sf_name" type = "text" placeholder="house_number" onChange={handelChange} name="house_number"></input>
+            <input className = "sl_name" type = "text" placeholder = "zipcode" onChange={handelChange} name="zipCode"></input>
+            <input className = "sl_name" type = "text" placeholder = "city" onChange={handelChange} name ="city"></input>
+            <input className = "sl_name" type = "text" placeholder = "state" onChange={handelChange} name= "state"></input>
+        </form>
           
           <button className = "homepage-button" onClick={handelSubmit}>Submit</button>
           <button className=' homepage-button'><Link to = "/students"> Back</Link></button>

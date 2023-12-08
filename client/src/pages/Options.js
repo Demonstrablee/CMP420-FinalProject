@@ -6,7 +6,7 @@ const Options = () => {
         <div id="div1">    
         <h1 className="title">COMPUTER SCIENCE DEPARTMENT</h1>
       </div>
-        <div id='warning'>
+        <div className='warning'>
         <p>The website is currently under maintenance. The systems for Departments, 
           Instructors and Cheating Incidents are down at the moment we apologize for the 
           temporary inconvience. </p>

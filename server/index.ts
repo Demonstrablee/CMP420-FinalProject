@@ -17,7 +17,7 @@ const db = mysql.createConnection({ // the server connecting to it
    host: "localhost",
    user : "root",
    password: "C0mputer", // dont keep this out in the open so that no one else knows what this is
-   database: "CSDept"
+   database: "csDepartment"
  
 }
 )
@@ -35,6 +35,7 @@ const PORT = 8000;
 // make app listen on a port
 app.listen(PORT, ()=> {
     console.log(`Server listening on ${PORT}`);
+    console.log(`Link to the CS Database at http://localhost:8000`);
      
 })
 
@@ -70,9 +71,9 @@ function getStudents (request: any, response: any) {
 
 }
 function getStudentWithID (request: any, response: any) { 
-    const q = 'SELECT * FROM student WHERE empilid = ?';
-    const empilID = request.params.empilid;
-    db.query(q,[empilID],(err: any,data: any)=>{
+    const q = 'SELECT * FROM student WHERE emplid = ?';
+    const emplID = request.params.emplid;
+    db.query(q,[emplID],(err: any,data: any)=>{
         if(err) return response.json(err)
         return response.json(data)
     })
@@ -151,16 +152,20 @@ function getEmployedBy (request: any, response: any) {
 
 //POST (ADD NEW ENTERIES)
 function postStudents (request: any, response: any) { 
-    const q = "INSERT INTO Student(`empilid`, `f_name`, `m_name`, `l_name`, `dob`, `email`, `phone`, `address`) VALUES (?) ";
+    const q = "INSERT INTO Student(`emplid`, `firstName`, `mi`, `lastName`, `dob`, `email`, `phone`, `house_number`,`street`,`city`,`zipCode`,`state`) VALUES (?) ";
     const values: any = [
-        request.body.empilid,
-        request.body.f_name,
-        request.body.m_name,
-        request.body.l_name,
+        request.body.emplid,
+        request.body.firstName,
+        request.body.mi,
+        request.body.lastName,
         request.body.dob,
         request.body.email,
         request.body.phone,
-        request.body.address
+        request.body.house_number,
+        request.body.street,
+        request.body.city,
+        request.body.zipCode,
+        request.body.state
     ];
     //SENDING QUERY
     db.query(q,[values],(err: any,data: any)=>{
@@ -272,26 +277,30 @@ function postCheatingIncident (request: any, response: any) {
         
 // DELETE
 function deleteStudent(request: any,response: any){
-    const empilID = request.params.empilid;
-    const q = "DELETE FROM student WHERE empilid = ?"
+    const emplID = request.params.emplid;
+    const q = "DELETE FROM student WHERE emplid = ?"
 
-    db.query(q,[empilID],(err: any,data: any)=>{
+    db.query(q,[emplID],(err: any,data: any)=>{
         if(err) return response.json(err)
         return response.json('Student was deleted')});
 }
 
 //UPDATE
 function updateStudent(request: any,response: any){
-    const empilID = request.params.empilid;
-    const q = "UPDATE student SET `f_name` = ?, `m_name` = ?, `l_name` = ?, `dob`= ?, `email`= ?, `phone`= ?, `address` = ? WHERE empilid = ?"
+    const empilID = request.params.emplid;
+    const q = "UPDATE student SET `firstName` = ?, `mi` = ?, `lastName` = ?, `dob`= ?, `email`= ?, `phone`= ?, `house_number` = ?,`street` = ?,`city` = ?,`zipCode` = ?,`state` = ? WHERE emplid = ?"
     const values: any = [
-        request.body.f_name,
-        request.body.m_name,
-        request.body.l_name,
+        request.body.firstName,
+        request.body.mi,
+        request.body.lastName,
         request.body.dob,
         request.body.email,
         request.body.phone,
-        request.body.address
+        request.body.house_number,
+        request.body.street,
+        request.body.city,
+        request.body.zipCode,
+        request.body.state
     ];
     db.query(q,[...values,empilID],(err: any,data: any)=>{
         if(err) return response.json(err)
@@ -308,11 +317,11 @@ app.get('/backend', (request:any,response: any)=>{
 })
 //(READ)GET 
 app.get('/students', getStudents) // list all the links in the database (WORKING)
-app.get('/students/:empilid', getStudentWithID) // get one specific student (WORKING)
+app.get('/students/:emplid', getStudentWithID) // get one specific student (WORKING)
 app.get('/instructors', getInstructors)
 
 //UPDATE
- app.put('/students/:empilid', updateStudent) // update an existing link in the database (WORKING)
+ app.put('/students/:emplid', updateStudent) // update an existing link in the database (WORKING)
 
 //DELETE
-app.delete('/students/:empilid', deleteStudent) // delete a link in the data base (WORKING)
+app.delete('/students/:emplid', deleteStudent) // delete a link in the data base (WORKING)

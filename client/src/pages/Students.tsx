@@ -34,7 +34,7 @@ const Students = () => {
       <h2 className = 'title'>Student Records Portal</h2>
       <div className='stu-table' key = {students.empilid}>
          <h1>{students.map((student:any)=>(
-          <h5 id = "table-data">{student.empilid} {student.f_name}{student.m_name}{student.l_name}{student.dob}{student.email}{student.phone}{student.address}</h5>
+          <h5 className = "table-data">{student.emplid} {student.firstName} {student.mi} {student.lastName} {(student.dob).substring(0,10)} {student.email} {student.phone}</h5>
         
          ))}</h1>
 

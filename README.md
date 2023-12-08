@@ -5,9 +5,10 @@
 To run the app from your own computer, within the terminal:
  
 1. 	Change directory into the server folder with “cd server”
-2. 	Type “npm start” and the express server should start up
-3. 	Within your browser (we used opera) either enter http://localhost:8000 , or click the link that appears in the terminal to the same site.
-4. 	Voila! Welcome to the Computer Science Departments Database click Department Affairs and explore from there
+2. 	In the .env file update the password to your MYSQL password
+3. 	Type “npm start” and the express server should start up
+4. 	Within your browser (we used opera) either enter http://localhost:8000 , or click the link that appears in the terminal to the same site.
+5. 	Voila! Welcome to the Computer Science Departments Database click Department Affairs and explore from there
 
 Created with the Collaborative Effort of:
 - Ljupcho Atanasov 
